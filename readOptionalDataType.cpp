@@ -28,7 +28,7 @@ int main()
         std::cout << "data could not be read \n";
     }
 
-    std::optional<int> count = Data.value_or(100); // give me the count variable value in the file or else give me 100
-    std::string &stringData = *Data;               // can be accessed like normal string - Data->
+    // std::optional<int> count = Data.value_or(100); // give me the count variable value in the file or else give me 100
+    std::string &stringData = *Data; // can be accessed like normal string - Data->
     return 0;
 }
