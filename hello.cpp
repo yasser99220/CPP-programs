@@ -1,8 +1,8 @@
-#include<iostream.h>
+#include <iostream>
 using namespace std;
 int main()
 {
-cout<<"hello world"<<endl;
-cout<<" Thank you "<<endl;
-return 0;
+    cout << "hello world" << endl;
+    cout << " Thank you " << endl;
+    return 0;
 }
