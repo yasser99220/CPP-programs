@@ -1,5 +1,8 @@
 #include <iostream>
+<<<<<<< HEAD
 #include <memory>
+=======
+>>>>>>> 977e7aa94ba9117bd55f43a47e3d19caba405d2d
 using namespace std;
 
 struct test
@@ -20,6 +23,7 @@ void takeOwnership(std::unique_ptr<test> tester)
 }
 int main()
 {
+<<<<<<< HEAD
 
     std::unique_ptr<test> f{new test};
 
@@ -30,6 +34,8 @@ int main()
     std::unique_ptr<int **> testdouble{new int **};
     auto f = std::move(test); // release ownership of f and transfer it to f
 
+=======
+>>>>>>> 977e7aa94ba9117bd55f43a47e3d19caba405d2d
     cout << "hello world" << endl;
     cout << " Thank you " << endl;
     return 0;
