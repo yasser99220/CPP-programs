@@ -95,10 +95,18 @@ void demoMAP(void)
     cout << cmaps['a'] << " " << cmaps['m'];
 }
 
+using namespace std;
 int main()
 {
-    s_MemoryAllocated.printUsage();
-    int *test = new int;
-    //std::unique_ptr<int *> testunique = make_unique<int>;
-    s_MemoryAllocated.printUsage();
+    int a = 8;
+    cout << "ANDing integer 'a' with 'true' :" << a && true;
+    return 0;
 }
+
+// int main()
+// {
+//     // s_MemoryAllocated.printUsage();
+//     // int *test = new int;
+//     // //std::unique_ptr<int *> testunique = make_unique<int>;
+//     // s_MemoryAllocated.printUsage();
+// }
