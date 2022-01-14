@@ -1,3 +1,6 @@
+#include <iostream>
+#include <vector>
+using namespace std;
 class Solution
 {
 public:
@@ -73,3 +76,35 @@ public:
         return index;
     }
 };
+
+int FindLastIndex(vector<int> &vec, const int &ele)
+{
+    int result = -1;
+    int high = vec.size() - 1;
+    int low = 0;
+    int mid;
+    while (low <= high)
+    {
+        mid = low + (high - low) / 2;
+        cout << "mid=" << mid << "high=" << high << "low=" << low << endl;
+        if ((vec[mid] == ele) && ((mid == 0) || (vec[mid] != vec[mid + 1])))
+        {
+            return mid;
+        }
+
+        if (vec[mid] >= ele)
+        {
+            high = mid + 1;
+        }
+        else
+        {
+            low = mid - 1;
+        }
+    }
+    return result;
+}
+int main()
+{
+    vector<int> test = {1, 2, 2, 4, 5, 6};
+    cout << FindLastIndex(test, 2) << endl;
+}

@@ -95,11 +95,78 @@ void demoMAP(void)
     cout << cmaps['a'] << " " << cmaps['m'];
 }
 
+typedef unsigned long long int ull;
+#include <map>
+
+map<ull, bool> PrimeMap;
+bool isPrime(ull &num)
+{
+    if (PrimeMap[num])
+    {
+        return true;
+    }
+
+    if (num == 3 || num == 2)
+        return true;
+
+    for (ull i = 3; i <= num / 2; i += 2)
+    {
+        if (num % i == 0)
+            return false;
+    }
+
+    PrimeMap[num] = true;
+    return true;
+}
+
+void projectEuler9(ull num)
+{
+    // precompute all relevant prime numbers
+    std::vector<ull> primes;
+    // the only even prime
+    primes.push_back(2);
+    // now check all odd numbers for primality
+    for (ull i = 3; i <= num; i += 2)
+    {
+        bool isPrime = true;
+        for (auto p : primes)
+        {
+            // no larger prime factor possible ?
+            if (p * p > i)
+                break;
+
+            // no prime number ?
+            if (i % p == 0)
+            {
+                isPrime = false;
+                break;
+            }
+        }
+
+        // yes, we have a new prime
+        if (isPrime)
+            primes.push_back(i);
+    }
+
+    // prime numbers were found in ascending order,
+    // let's add their value and store in a map such that
+    // [prime number] => [sum of all prime numbers up to the current]
+    // note: long long is required to avoid overflows
+    std::map<unsigned int, unsigned long long> sums;
+    unsigned long long sum = 0;
+    for (auto p : primes)
+    {
+        sum += p;
+        sums[p] = sum;
+    }
+    cout << sum;
+}
+
 using namespace std;
 int main()
 {
-    int a = 8;
-    cout << "ANDing integer 'a' with 'true' :" << a && true;
+    projectEuler9(2000000);
+    //cout << "ANDing integer 'a' with 'true' :" << a && true;
     return 0;
 }
 

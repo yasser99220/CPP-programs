@@ -2,7 +2,7 @@
 using namespace std;
 int fib(int n, int *memo) // fibonacci series using DP and memoisation
 {
-    if (memo[n] != 0)
+    if (memo[n] != -1)
         return memo[n];
     int result = 0;
 
@@ -19,7 +19,7 @@ int fib(int n, int *memo) // fibonacci series using DP and memoisation
 
 int fibBottomUp(const int n)
 {
-    int memo[6] = {0}; // size of array should be 1 more than n
+    int memo[6] = {-1}; // size of array should be 1 more than n
     memo[1] = 1;
     memo[2] = 1;
     for (int i = 3; i <= n; ++i)
@@ -50,12 +50,30 @@ long long rowSumOddNumbers(unsigned n)
     return sum;
 }
 
+int fibNormal(int n)
+{
+    if (n == 0 || n == 1)
+        return n;
+
+    return fibNormal(n - 1) + fibNormal(n - 2);
+}
+
+void reverse(string &s) // 0 1 3 4 5 yasser
+{
+    if (s.empty())
+        return;
+
+    string rs = s.substr(1);
+    reverse(rs);
+    cout << s[0];
+}
+
 int main()
 {
-    int memo[6] = {0}; // array to store the repeated results i.e memoisation
-
-    cout << fib(5, memo) << endl;
-    cout << fibBottomUp(5) << endl;
-    std::cout << rowSumOddNumbers(3);
+    int memo[6] = {-1}; // array to store the repeated results i.e memoisation
+    string test = "yasser";
+    reverse(test);
+    //cout << fibBottomUp(5) << endl;
+    // std::cout << fibNormal(5);
     return EXIT_SUCCESS;
 }

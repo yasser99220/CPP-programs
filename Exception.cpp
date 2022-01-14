@@ -29,7 +29,7 @@ class CanGoWrong
 public:
     CanGoWrong()
     {
-        char *pMemory = new char[99999999999999999]; // returning something from constructor as an exception
+        char *pMemory = new char[999]; // returning something from constructor as an exception
         (void)pMemory;
         delete[] pMemory;
     }
@@ -51,7 +51,7 @@ int main()
 {
     try
     {
-        wrapingExceptionTesting(); //ExceptionTesting();
+        wrapingExceptionTesting(); // ExceptionTesting();
     }
     catch (int e)
     {
